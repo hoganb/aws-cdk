@@ -1,8 +1,34 @@
-# Welcome to your CDK TypeScript project
+# aws-cdk
 
-This is a blank project for CDK development with TypeScript.
+Deploy serverless hello world app to AWS using AWS CDK, API Gateway and Lambda (Node.js + TypeScript).
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
+
+## AWS services used
+* AWS Free Tier
+* AWS CDK
+* AWS CloudFormation
+* AWS S3
+* AWS DynamoDB
+* AWS ECR
+* AWS SSM
+* AWS API Gateway
+* AWS Lambda (Node.js)
+* AWS SDK for JavaScript
+* AWS IAM
+
+## Steps taken
+* Created IAM user with user group that has full access permissions for CloudFormation, API Gateway, Lambda and DynamoDB
+* Configured MFA on the IAM user
+* Installed AWS CLI tool (MSI installer)
+* Installed AWS CDK CLI tool (`npm i -g aws-cdk`)
+* Init a CDK app using `cdk init app --language typescript`
+* Create a hello world Lambda API Gateway
+* Extended user group permissions to include full access to IAM, ECR, S3 and SSM
+* Run `cdk bootstrap` to prepare AWS account to deploy CDK apps, it sets up an S3 bucket and a DynamoDB table that the CDK uses to store and manage your deployment assets and state (see CloudFormation > CDKToolkit stack)
+* Deploy stack to AWS using `cdk deploy`
+* Test using postman
+* Destroy stack from AWS using `cdk destroy`
 
 ## Useful commands
 
